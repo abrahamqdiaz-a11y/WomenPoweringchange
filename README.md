@@ -9,7 +9,9 @@ index.html              The one-page site
 404.html                "Page not found" page
 assets/css/styles.css   All styling (brand colors are CSS variables at the top)
 assets/js/main.js       Link settings + mobile menu
-assets/img/             Logo and favicon
+assets/img/             Logo, favicon, icon sprite (icons.svg)
+assets/img/photos/      Section photos (see "Photos" below)
+assets/fonts/           Self-hosted web fonts
 ```
 
 ## Before launch: what the client still needs to provide
@@ -22,8 +24,23 @@ assets/img/             Logo and favicon
 | Sponsorship / donation URL | `sponsorship` in `SITE_CONFIG` |
 | Event registration links | `eventRegistration`, `communityEvent` in `SITE_CONFIG` |
 | Supported-organization websites | `orgHaven`, `orgMothersHelpingMothers`, … in `SITE_CONFIG` |
-| Board & volunteer names, titles, photos | `#team` section of `index.html`. Put photos in `assets/img/team/` and replace the `+` in an `.avatar` with `<img src="assets/img/team/name.jpg" alt="">`. |
+| Board & volunteer names, titles, photos | `#team` section of `index.html`. See "Photos" below. |
 | Event details (date, location, tickets) | `#events` section of `index.html` |
+
+## Photos
+
+The design has photo frames in four places. Until a photo file exists, each frame shows a branded gradient with an icon, so the site looks finished either way. To add photos, save a JPG with the matching name into `assets/img/photos/`:
+
+| File | Where it appears | Suggested subject |
+| --- | --- | --- |
+| `hero-women.jpg` | Hero, large arched frame | A group of women together, smiling |
+| `hero-volunteers.jpg` | Hero, top right | Volunteers sorting or packing donations |
+| `hero-rescue.jpg` | Hero, bottom right | A woman with a rescue dog or cat |
+| `give-together.jpg` | "Every woman has something valuable to give" | Women business owners collaborating |
+
+Use landscape or square photos around 1600px on the long side, compressed to about 300 KB or less. Real photos from the organization's own events are best. Free stock options include [Unsplash](https://unsplash.com/license) and [Pexels](https://www.pexels.com/license/), which allow commercial use without attribution.
+
+Board and volunteer photos: add `<img src="assets/img/team/name.jpg" alt="">` inside that person's `.photo` element in `index.html`.
 
 ### How the link settings work
 
@@ -54,3 +71,9 @@ Any static host will work:
 - **Netlify / Cloudflare Pages / Vercel:** connect this repo, leave the build command empty, and set the publish directory to `/`.
 
 `404.html` is picked up automatically by GitHub Pages, Netlify, and Cloudflare Pages.
+
+## Credits
+
+- Fonts: [Fraunces](https://github.com/undercasetype/Fraunces) and [Plus Jakarta Sans](https://github.com/tokotype/PlusJakartaSans), SIL Open Font License, self-hosted.
+- Icons: [Lucide](https://lucide.dev), ISC License.
+

@@ -78,7 +78,7 @@ const SITE_CONFIG = {
   document.addEventListener("click", (e) => {
     if (nav.classList.contains("is-open") && !nav.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
   });
-  window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
+  window.matchMedia("(min-width: 961px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
 })();
 
 /* ---------- Highlight the nav link for the section in view ---------- */
@@ -103,3 +103,36 @@ const SITE_CONFIG = {
 
 /* ---------- Footer year ---------- */
 document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
+
+/* ---------- Header shadow once the page scrolls ---------- */
+(function headerState() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const update = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+})();
+
+/* ---------- Photos fade in when loaded; missing files leave the branded fallback ---------- */
+document.querySelectorAll(".photo img").forEach((img) => {
+  const show = () => { if (img.naturalWidth) img.classList.add("is-loaded"); };
+  if (img.complete) show(); else img.addEventListener("load", show);
+});
+
+/* ---------- Reveal sections on scroll ---------- */
+(function reveal() {
+  const items = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  items.forEach((el) => observer.observe(el));
+})();
