@@ -11,6 +11,11 @@ const SITE_CONFIG = {
   // Contact email (used for every data-link="email" button)
   email: "",
 
+  // Volunteer sign-up form (volunteer.html). Leave "" when hosting on
+  // Netlify: Netlify Forms collects submissions automatically. On any other
+  // host, paste a form-service endpoint here, e.g. "https://formspree.io/f/abcd1234".
+  volunteerFormEndpoint: "",
+
   // Get Involved
   vendorRegistration: "", // Zeffy vendor registration form
   sponsorship: "",        // Sponsorship / donation page
@@ -78,7 +83,7 @@ const SITE_CONFIG = {
   document.addEventListener("click", (e) => {
     if (nav.classList.contains("is-open") && !nav.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
   });
-  window.matchMedia("(min-width: 961px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
+  window.matchMedia("(min-width: 1271px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
 })();
 
 /* ---------- Highlight the nav link for the section in view ---------- */
@@ -135,4 +140,126 @@ document.querySelectorAll(".photo img").forEach((img) => {
     });
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
   items.forEach((el) => observer.observe(el));
+})();
+
+/* ---------- Volunteer sign-up form ---------- */
+(function volunteerForm() {
+  const form = document.getElementById("volunteer-form");
+  if (!form) return;
+  const success = document.getElementById("form-success");
+  const status = form.querySelector(".form-status");
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  const showSuccess = () => {
+    form.hidden = true;
+    success.hidden = false;
+    success.focus();
+    success.scrollIntoView({ block: "center" });
+  };
+
+  // Non-JS submissions on Netlify land back here with ?submitted=1
+  if (new URLSearchParams(location.search).has("submitted")) showSuccess();
+
+  // Ask for a business name only when "Yes" is chosen
+  const businessField = document.getElementById("business-name-field");
+  form.querySelectorAll('input[name="business_owner"]').forEach((radio) => {
+    radio.addEventListener("change", () => { businessField.hidden = radio.value !== "Yes" || !radio.checked; });
+  });
+
+  const MESSAGES = {
+    full_name: "Please enter your full name.",
+    street: "Please enter your street address.",
+    city: "Please enter your city.",
+    state: "Please enter your state.",
+    zip: { valueMissing: "Please enter your ZIP code.", patternMismatch: "Please enter a 5-digit ZIP code." },
+    phone: { valueMissing: "Please enter your phone number.", patternMismatch: "Please enter a phone number with area code." },
+    email: { valueMissing: "Please enter your email address.", typeMismatch: "Please enter a valid email address." },
+    hours: "Please choose how many hours you can volunteer.",
+    business_owner: "Please choose Yes or No.",
+    time_preference: "Please choose mornings, evenings, or either.",
+  };
+
+  const messageFor = (key, validity) => {
+    const m = MESSAGES[key];
+    if (typeof m === "string") return m;
+    if (validity.patternMismatch) return m.patternMismatch;
+    if (validity.typeMismatch) return m.typeMismatch;
+    return m.valueMissing;
+  };
+
+  // Returns true when valid; shows/clears the message for one field or radio group.
+  const validate = (el) => {
+    if (el.type === "radio") {
+      const group = document.getElementById(el.name + "-group");
+      const ok = !!form.querySelector(`input[name="${el.name}"]:checked`);
+      group.classList.toggle("is-invalid", !ok);
+      document.getElementById(el.name + "-error").textContent = ok ? "" : MESSAGES[el.name];
+      return ok;
+    }
+    const value = el.value.trim();
+    if (value !== el.value) el.value = value;
+    const ok = el.checkValidity();
+    el.setAttribute("aria-invalid", String(!ok));
+    const error = document.getElementById(el.id + "-error");
+    if (error) {
+      error.textContent = ok ? "" : messageFor(el.id, el.validity);
+      if (ok) el.removeAttribute("aria-describedby"); else el.setAttribute("aria-describedby", error.id);
+    }
+    return ok;
+  };
+
+  const requiredFields = () => {
+    const seen = new Set();
+    return [...form.querySelectorAll("[required]")].filter((el) => {
+      if (el.type !== "radio") return true;
+      if (seen.has(el.name)) return false;
+      seen.add(el.name);
+      return true;
+    });
+  };
+
+  // Re-check a field as the visitor fixes it, after they've tried once
+  form.addEventListener("input", (e) => { if (e.target.getAttribute("aria-invalid") === "true") validate(e.target); });
+  form.addEventListener("change", (e) => { if (e.target.type === "radio") validate(e.target); });
+  form.addEventListener("focusout", (e) => { if (e.target.required && e.target.type !== "radio" && e.target.value) validate(e.target); });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "";
+    status.classList.remove("is-error");
+
+    const invalid = requiredFields().filter((el) => !validate(el));
+    if (invalid.length) {
+      status.textContent = "Please fix the highlighted fields.";
+      status.classList.add("is-error");
+      invalid[0].focus();
+      return;
+    }
+
+    // Spam bots fill the hidden field; quietly pretend it worked
+    if (form.company_website.value) { showSuccess(); return; }
+
+    submitBtn.disabled = true;
+    status.textContent = "Sending…";
+    const data = new FormData(form);
+
+    try {
+      const endpoint = (SITE_CONFIG.volunteerFormEndpoint || "").trim();
+      const res = endpoint
+        ? await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
+        : await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(data).toString(),
+          });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      showSuccess();
+    } catch (err) {
+      const email = (SITE_CONFIG.email || "").replace(/^mailto:/, "");
+      status.textContent = "Sorry, we couldn't send your sign-up. Please try again" + (email ? ` or email us at ${email}.` : " in a moment.");
+      status.classList.add("is-error");
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
 })();

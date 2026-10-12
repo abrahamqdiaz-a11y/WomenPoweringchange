@@ -6,6 +6,7 @@ A fast, dependency-free static site (HTML + CSS + a little JavaScript). No build
 
 ```
 index.html              The one-page site
+volunteer.html          Volunteer sign-up form
 404.html                "Page not found" page
 assets/css/styles.css   All styling (brand colors are CSS variables at the top)
 assets/js/main.js       Link settings + mobile menu
@@ -26,6 +27,17 @@ assets/fonts/           Self-hosted web fonts
 | Supported-organization websites | `orgHaven`, `orgMothersHelpingMothers`, … in `SITE_CONFIG` |
 | Board & volunteer names, titles, photos | `#team` section of `index.html`. See "Photos" below. |
 | Event details (date, location, tickets) | `#events` section of `index.html` |
+
+## Volunteer sign-up form
+
+`volunteer.html` collects: full name, address, telephone, email, business owner (yes/no, plus an optional business name), talents, interests, hobbies, hours per month, morning/evening preference, and "tell us about yourself". Required fields are checked in the browser with friendly error messages, and a hidden "honeypot" field filters out spam bots.
+
+**Where submissions go:**
+
+- **Hosted on Netlify (recommended):** nothing to set up. Netlify Forms detects the form on deploy. Submissions show under *Site → Forms → volunteer-signup*, and you can turn on email notifications under *Forms → Form notifications*. The free tier includes 100 submissions a month.
+- **Any other host (GitHub Pages, etc.):** create a free form endpoint at a service like [Formspree](https://formspree.io) and paste its URL into `volunteerFormEndpoint` in `SITE_CONFIG` (`assets/js/main.js`). Submissions are then emailed to you.
+
+If neither is set up, visitors see an error asking them to try again, so set one up before launch.
 
 ## Photos
 
