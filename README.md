@@ -10,7 +10,7 @@ volunteer.html          Volunteer sign-up form
 404.html                "Page not found" page
 assets/css/styles.css   All styling (brand colors are CSS variables at the top)
 assets/js/main.js       Link settings + mobile menu
-assets/img/             Logo, favicon, icon sprite (icons.svg)
+assets/img/             Logo (logo.png, logo-160.png), favicon, social image, icon sprite
 assets/img/photos/      Section photos (see "Photos" below)
 assets/fonts/           Self-hosted web fonts
 ```
@@ -19,7 +19,6 @@ assets/fonts/           Self-hosted web fonts
 
 | Item | Where to put it |
 | --- | --- |
-| Official logo file | Save it in `assets/img/` and change the two `assets/img/logo.svg` references in `index.html` (header + hero). The current logo is a stand-in in the brand colors. |
 | Contact email | `email` in `SITE_CONFIG` (`assets/js/main.js`) |
 | Zeffy vendor registration URL | `vendorRegistration` in `SITE_CONFIG` |
 | Sponsorship / donation URL | `sponsorship` in `SITE_CONFIG` |
