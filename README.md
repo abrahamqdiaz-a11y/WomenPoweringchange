@@ -7,10 +7,13 @@ A fast, dependency-free static site (HTML + CSS + a little JavaScript). No build
 ```
 index.html              The one-page site
 volunteer.html          Volunteer sign-up form
+media-kit.html          Media kit / brand guidelines (logos, colors, fonts, messages, QR)
+terra-tominelli.html    Board member bio + résumé (copy it for each new board member)
 404.html                "Page not found" page
 assets/css/styles.css   All styling (brand colors are CSS variables at the top)
 assets/js/main.js       Link settings + mobile menu
-assets/img/             Logo, favicon, icon sprite (icons.svg)
+assets/img/             Logo (full color + one-color navy/white), favicon, icon sprite, website QR code
+assets/downloads/       Media kit PDF and print-size QR code PNG
 assets/img/photos/      Section photos (see "Photos" below)
 assets/fonts/           Self-hosted web fonts
 ```
@@ -19,8 +22,8 @@ assets/fonts/           Self-hosted web fonts
 
 | Item | Where to put it |
 | --- | --- |
-| Official logo file | Save it in `assets/img/` and change the two `assets/img/logo.svg` references in `index.html` (header + hero). The current logo is a stand-in in the brand colors. |
-| Contact email | `email` in `SITE_CONFIG` (`assets/js/main.js`) |
+| Official logo file | Save it in `assets/img/` and change the `assets/img/logo.svg` references in the HTML pages. The current logo (and `logo-navy.svg` / `logo-white.svg`) is a stand-in in the brand colors, so replace those too and re-export the media kit PDF. |
+| Terra Tominelli headshot | Save as `assets/img/team/terra-tominelli.jpg` (portrait, about 800×1000). It appears on the Team card, her bio page and the media kit. |
 | Zeffy vendor registration URL | `vendorRegistration` in `SITE_CONFIG` |
 | Sponsorship / donation URL | `sponsorship` in `SITE_CONFIG` |
 | Event registration links | `eventRegistration`, `communityEvent` in `SITE_CONFIG` |
@@ -89,3 +92,9 @@ Any static host will work:
 - Fonts: [Fraunces](https://github.com/undercasetype/Fraunces) and [Plus Jakarta Sans](https://github.com/tokotype/PlusJakartaSans), SIL Open Font License, self-hosted.
 - Icons: [Lucide](https://lucide.dev), ISC License.
 
+
+## Media kit
+
+`media-kit.html` is the brand guide for partners, sponsors and press. Its "Download Media Kit (PDF)" button serves `assets/downloads/wpc-media-kit.pdf`. After changing the page, re-export the PDF: open `media-kit.html` in Chrome, then Print → Save as PDF, Letter, default margins, **Background graphics on**, Scale 72%. That gives 2 pages.
+
+The website QR code (`assets/img/qr-website.svg`, `assets/downloads/wpc-qr-website.png`) points to `https://womenpoweringchange.netlify.app/`. If the site moves to its own domain, regenerate both so printed flyers stay correct.

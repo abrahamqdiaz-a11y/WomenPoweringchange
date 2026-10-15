@@ -9,7 +9,7 @@
 
 const SITE_CONFIG = {
   // Contact email (used for every data-link="email" button)
-  email: "",
+  email: "contactwpc941@gmail.com",
 
   // Volunteer sign-up form (volunteer.html). Leave "" when hosting on
   // Netlify: Netlify Forms collects submissions automatically. On any other
