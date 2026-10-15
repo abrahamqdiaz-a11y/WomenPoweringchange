@@ -263,3 +263,74 @@ document.querySelectorAll(".photo img").forEach((img) => {
     }
   });
 })();
+
+/* ---------- Get-involved form on the QR info page (info.html) ---------- */
+(function infoForm() {
+  const form = document.getElementById("info-form");
+  if (!form) return;
+  const success = document.getElementById("info-success");
+  const status = form.querySelector(".form-status");
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  const showSuccess = () => {
+    form.hidden = true;
+    success.hidden = false;
+    success.focus();
+    success.scrollIntoView({ block: "center" });
+  };
+
+  // Non-JS submissions on Netlify land back here with ?sent=1
+  if (new URLSearchParams(location.search).has("sent")) showSuccess();
+
+  const MESSAGES = {
+    name: { valueMissing: "Please enter your name." },
+    email: { valueMissing: "Please enter your email address.", typeMismatch: "Please enter a valid email address." },
+  };
+
+  const validate = (el) => {
+    const value = el.value.trim();
+    if (value !== el.value) el.value = value;
+    const ok = el.checkValidity();
+    el.setAttribute("aria-invalid", String(!ok));
+    const error = document.getElementById(el.id + "-error");
+    error.textContent = ok ? "" : (el.validity.typeMismatch ? MESSAGES[el.id].typeMismatch : MESSAGES[el.id].valueMissing);
+    if (ok) el.removeAttribute("aria-describedby"); else el.setAttribute("aria-describedby", error.id);
+    return ok;
+  };
+
+  form.addEventListener("input", (e) => { if (e.target.getAttribute("aria-invalid") === "true") validate(e.target); });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "";
+    status.classList.remove("is-error");
+
+    const invalid = [...form.querySelectorAll("[required]")].filter((el) => !validate(el));
+    if (invalid.length) {
+      status.textContent = "Please fix the highlighted fields.";
+      status.classList.add("is-error");
+      invalid[0].focus();
+      return;
+    }
+
+    // Spam bots fill the hidden field; quietly pretend it worked
+    if (form.company_website.value) { showSuccess(); return; }
+
+    submitBtn.disabled = true;
+    status.textContent = "Sending…";
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      showSuccess();
+    } catch (err) {
+      status.textContent = "Sorry, we couldn't send that. Please try again or email us at " + SITE_CONFIG.email + ".";
+      status.classList.add("is-error");
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+})();
