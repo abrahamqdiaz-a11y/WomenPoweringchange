@@ -28,13 +28,36 @@
     <p class="info-lede">We bring women, businesses, and community together to turn shared talents and resources into meaningful change.</p>
   </header>
 
+  <section class="info-card" aria-labelledby="who-h">
+    <h2 id="who-h">Who we are</h2>
+    <p class="info-quote">A collective of women <em>empowering each other</em> to drive positive social, economic, and cultural change in our communities.</p>
+    <p>We believe that when women bring their businesses, talents, relationships, and resources together, we can create meaningful change that reaches far beyond one organization or one event.</p>
+  </section>
+
   <section class="info-band" aria-labelledby="cause-h">
     <h2 id="cause-h">One local cause. Every quarter.</h2>
+    <p class="info-band-lede">Each quarter we choose a local charity or community effort and put our collective energy behind it.</p>
     <ul class="info-causes">
-      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#heart"/></svg>Women</li>
-      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#paw-print"/></svg>Animals</li>
-      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#baby"/></svg>Children</li>
-      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#house-heart"/></svg>Disaster Relief</li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#heart"/></svg><span><strong>Women</strong>Lifting up women and the families who depend on them.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#paw-print"/></svg><span><strong>Animals</strong>Rescues, shelters, and sanctuaries giving animals a second chance.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#baby"/></svg><span><strong>Children</strong>Nourishing, educating, and encouraging the next generation.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#house-heart"/></svg><span><strong>Disaster Relief</strong>Local relief when neighbors need it most.</span></li>
+    </ul>
+  </section>
+
+  <section class="info-card" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <ol class="info-steps">
+      <li><strong>Listen to our community.</strong> We find local needs and organizations doing meaningful work where support makes a real difference.</li>
+      <li><strong>Put our talents to work.</strong> Members use their businesses, networks, skills, resources, and voices to move the cause forward.</li>
+      <li><strong>Make an impact together.</strong> We rally women, business owners, sponsors, volunteers, and partners to create visible change.</li>
+    </ol>
+  </section>
+
+  <section class="info-card" aria-labelledby="orgs-h">
+    <h2 id="orgs-h">Organizations we support</h2>
+    <ul class="info-tags">
+      <li>The Haven</li><li>Mothers Helping Mothers</li><li>Feeding Empty Tummies</li><li>One Mission</li><li>Satchel's Last Resort Animal Shelter &amp; Sanctuary</li><li>TerraNichol Academy of the Arts</li><li>The Twig Cares</li>
     </ul>
   </section>
 
@@ -45,64 +68,8 @@
       <li>Build connections with women and businesses who care.</li>
       <li>Combine our strengths to make a greater impact together.</li>
     </ul>
-  </section>
-
-  <section class="info-card" id="join" aria-labelledby="place-h">
-    <h2 id="place-h">There is a place for you</h2>
-    <p class="info-small info-intro">Volunteer your time or share your expertise. Sponsor a cause, become a vendor, or partner with us. Donate a product, service, or financial gift. Leave your details and we'll reach out.</p>
-
-    <form id="info-form" class="form info-form" name="get-involved" method="POST" action="info.html?sent=1"
-          data-netlify="true" netlify-honeypot="company_website" novalidate>
-      <input type="hidden" name="form-name" value="get-involved">
-      <p class="hp" aria-hidden="true">
-        <label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label>
-      </p>
-
-      <fieldset class="field choice-group">
-        <legend>I'd like to&hellip; <span class="optional">(choose any)</span></legend>
-        <div class="choices">
-          <label class="choice"><input type="checkbox" name="volunteer" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#user-plus"/></svg>Volunteer</span></label>
-          <label class="choice"><input type="checkbox" name="sponsor" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#hand-heart"/></svg>Sponsor</span></label>
-          <label class="choice"><input type="checkbox" name="vendor" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#store"/></svg>Be a vendor</span></label>
-          <label class="choice"><input type="checkbox" name="partner_or_donate" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#handshake"/></svg>Partner or donate</span></label>
-          <label class="choice"><input type="checkbox" name="learn_more" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#sparkles"/></svg>Just learn more</span></label>
-        </div>
-      </fieldset>
-
-      <div class="field">
-        <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-        <p class="field-error" id="name-error"></p>
-      </div>
-      <div class="field">
-        <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-        <p class="field-error" id="email-error"></p>
-      </div>
-      <div class="field">
-        <label for="phone">Phone <span class="optional">(optional)</span></label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel">
-      </div>
-      <div class="field">
-        <label for="business">Business name <span class="optional">(optional)</span></label>
-        <input id="business" name="business_name" type="text" autocomplete="organization">
-      </div>
-      <div class="field">
-        <label for="message">Message <span class="optional">(optional)</span></label>
-        <textarea id="message" name="message" rows="3" placeholder="Talents you'd like to share, a cause close to your heart, or a question."></textarea>
-      </div>
-
-      <div class="form-actions">
-        <button class="btn btn-primary" type="submit">Send <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></button>
-        <p class="form-status" role="status" aria-live="polite"></p>
-      </div>
-    </form>
-
-    <div class="form-success" id="info-success" tabindex="-1" hidden>
-      <span class="tile-icon pink"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#circle-check"/></svg></span>
-      <h2>Thank you!</h2>
-      <p>We're so glad you want to power change with us. Someone from our team will reach out soon.</p>
-    </div>
+    <h3 class="info-sub">Our values</h3>
+    <p class="info-values">Empowerment &bull; Community &bull; Integrity &bull; Impact &bull; Growth &bull; Courage</p>
   </section>
 
   <section class="info-card" aria-labelledby="founder-h">
@@ -118,6 +85,72 @@
       <p>Terra Tominelli is a lifelong entrepreneur, educational innovator, and community advocate whose career spans more than 25 years in education and eight years in fashion. As Founder and President of Women Powering Change Florida and the founder of two women-owned businesses, she brings an enduring commitment to creative leadership, purposeful collaboration, and community service.</p>
       <p>As founder of TerraNichol Academy of The Arts, Terra established the first school of its kind in Sarasota County, combining a Reggio Emilia approach with Montessori-inspired principles on a certified eco-friendly campus. TerraNichol Academy was voted Best School in Sarasota County, and Terra received the Sierra Club Citizen of the Year award for its sustainability program. She has also been nominated for the Good Hero Award and SRQ Magazine&rsquo;s Women Who Roar.</p>
       <p>Through Pink Sebastian Boutique, Terra extends her creative leadership into personal styling, brand collaborations, and charity fashion shows. At Women Powering Change Florida, she brings local businesses, nonprofit partners, and community members together to empower women and support meaningful causes.</p>
+    </details>
+  </section>
+
+  <section class="info-card" id="join" aria-labelledby="place-h">
+    <h2 id="place-h">There is a place for you</h2>
+    <ul class="info-ways">
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#user-plus"/></svg><span><strong>Volunteer</strong>Lend your time or expertise to a quarterly cause.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#hand-heart"/></svg><span><strong>Sponsor</strong>Help expand our community impact.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#store"/></svg><span><strong>Become a vendor</strong>Connect your business with women making a difference.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#handshake"/></svg><span><strong>Partner or donate</strong>Give a product, service, gift, or connection.</span></li>
+    </ul>
+    <details class="info-signup" id="info-signup">
+      <summary class="btn btn-primary">I'm interested <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></summary>
+      <p class="info-small info-intro">Leave your details and we'll reach out.</p>
+      <form id="info-form" class="form info-form" name="get-involved" method="POST" action="info.html?sent=1"
+            data-netlify="true" netlify-honeypot="company_website" novalidate>
+        <input type="hidden" name="form-name" value="get-involved">
+        <p class="hp" aria-hidden="true">
+          <label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <fieldset class="field choice-group">
+          <legend>I'd like to&hellip; <span class="optional">(choose any)</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="volunteer" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#user-plus"/></svg>Volunteer</span></label>
+            <label class="choice"><input type="checkbox" name="sponsor" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#hand-heart"/></svg>Sponsor</span></label>
+            <label class="choice"><input type="checkbox" name="vendor" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#store"/></svg>Be a vendor</span></label>
+            <label class="choice"><input type="checkbox" name="partner_or_donate" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#handshake"/></svg>Partner or donate</span></label>
+            <label class="choice"><input type="checkbox" name="learn_more" value="Yes"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#sparkles"/></svg>Just learn more</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <p class="field-error" id="name-error"></p>
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <p class="field-error" id="email-error"></p>
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="optional">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="business">Business name <span class="optional">(optional)</span></label>
+          <input id="business" name="business_name" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="message">Message <span class="optional">(optional)</span></label>
+          <textarea id="message" name="message" rows="3" placeholder="Talents you'd like to share, a cause close to your heart, or a question."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="form-success" id="info-success" tabindex="-1" hidden>
+        <span class="tile-icon pink"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#circle-check"/></svg></span>
+        <h2>Thank you!</h2>
+        <p>We're so glad you want to power change with us. Someone from our team will reach out soon.</p>
+      </div>
     </details>
   </section>
 
