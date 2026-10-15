@@ -98,3 +98,7 @@ Any static host will work:
 `media-kit.html` is the brand guide for partners, sponsors and press. Its "Download Media Kit (PDF)" button serves `assets/downloads/wpc-media-kit.pdf`. After changing the page, re-export the PDF: open `media-kit.html` in Chrome, then Print → Save as PDF, Letter, default margins, **Background graphics on**, Scale 72%. That gives 2 pages.
 
 The website QR code (`assets/img/qr-website.svg`, `assets/downloads/wpc-qr-website.png`) points to `https://womenpoweringchange.netlify.app/`. If the site moves to its own domain, regenerate both so printed flyers stay correct.
+
+## QR info page (`/info`)
+
+`info.html` is a one-screen, phone-first page for people who scan a flyer. The QR code `assets/img/qr-info.svg` / `assets/downloads/wpc-qr-info.png` points to `https://womenpoweringchange.netlify.app/info`, which `_redirects` serves from `info.html` on Netlify. When the full site is ready, change the rule in `_redirects` to `/info  /  302`: every printed QR code then opens the full site, with no reprinting.
