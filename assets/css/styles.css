@@ -567,10 +567,19 @@ figure.photo { margin: 0; }
 .info-card h2 { font-size: 1.45rem; color: var(--pink); margin: 0 0 12px; }
 .info-list { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
 .info-list li::marker { color: var(--teal); }
-.info-actions { display: grid; gap: 10px; }
-.info-actions .btn { width: 100%; }
-.info-small { color: var(--muted); font-size: .92rem; margin: 14px 0 0; }
+.info-small { color: var(--muted); font-size: .92rem; }
 .info-founder { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; }
+.info-intro { margin: 0 0 18px; }
+.info-form .choices { gap: 8px; }
+.info-form .choice span { padding: 9px 14px; font-size: .9rem; }
+.info-form .choice-group { margin-bottom: 18px; }
+.info-form .form-actions { margin-top: 22px; padding-top: 18px; }
+.info-form .form-actions .btn { width: 100%; }
+.info-card .form-success { padding: 12px 0; }
+.info-more { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+.info-more summary { cursor: pointer; font-weight: 700; color: var(--teal-dark); }
+.info-more summary:hover { color: var(--pink); }
+.info-more p { font-size: .95rem; margin: 12px 0 0; }
 .info-founder .photo { aspect-ratio: 1; border-radius: 50%; }
 .info-founder .photo > .icon { width: 40%; height: 40%; }
 .info-founder h2 { font-size: 1.2rem; margin-bottom: 6px; }
