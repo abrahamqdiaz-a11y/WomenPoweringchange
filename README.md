@@ -12,7 +12,7 @@ terra-tominelli.html    Board member bio + résumé (copy it for each new board 
 404.html                "Page not found" page
 assets/css/styles.css   All styling (brand colors are CSS variables at the top)
 assets/js/main.js       Link settings + mobile menu
-assets/img/             Logo (full color + one-color navy/white), favicon, icon sprite, website QR code
+assets/img/             Official logo (logo.png 600px, logo-192.png for header/footer, one-color logo-navy.png / logo-white.png), favicon, icon sprite, QR codes
 assets/downloads/       Media kit PDF and print-size QR code PNG
 assets/img/photos/      Section photos (see "Photos" below)
 assets/fonts/           Self-hosted web fonts
@@ -22,7 +22,6 @@ assets/fonts/           Self-hosted web fonts
 
 | Item | Where to put it |
 | --- | --- |
-| Official logo file | Save it in `assets/img/` and change the `assets/img/logo.svg` references in the HTML pages. The current logo (and `logo-navy.svg` / `logo-white.svg`) is a stand-in in the brand colors, so replace those too and re-export the media kit PDF. |
 | Terra Tominelli headshot | Save as `assets/img/team/terra-tominelli.jpg` (portrait, about 800×1000). It appears on the Team card, her bio page and the media kit. |
 | Zeffy vendor registration URL | `vendorRegistration` in `SITE_CONFIG` |
 | Sponsorship / donation URL | `sponsorship` in `SITE_CONFIG` |
@@ -98,3 +97,7 @@ Any static host will work:
 `media-kit.html` is the brand guide for partners, sponsors and press. Its "Download Media Kit (PDF)" button serves `assets/downloads/wpc-media-kit.pdf`. After changing the page, re-export the PDF: open `media-kit.html` in Chrome, then Print → Save as PDF, Letter, default margins, **Background graphics on**, Scale 72%. That gives 2 pages.
 
 The website QR code (`assets/img/qr-website.svg`, `assets/downloads/wpc-qr-website.png`) points to `https://womenpoweringchange.netlify.app/`. If the site moves to its own domain, regenerate both so printed flyers stay correct.
+
+## QR info page (`/info`)
+
+`info.html` is a one-screen, phone-first page for people who scan a flyer. The QR code `assets/img/qr-info.svg` / `assets/downloads/wpc-qr-info.png` points to `https://womenpoweringchange.netlify.app/info`, which `_redirects` serves from `info.html` on Netlify. When the full site is ready, change the rule in `_redirects` to `/info  /  302`: every printed QR code then opens the full site, with no reprinting.
