@@ -272,12 +272,20 @@ document.querySelectorAll(".photo img").forEach((img) => {
   const status = form.querySelector(".form-status");
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  const signup = document.getElementById("info-signup");
+
   const showSuccess = () => {
+    signup.open = true;
+    signup.querySelector("summary").hidden = true;
+    signup.querySelector(".info-intro").hidden = true;
     form.hidden = true;
     success.hidden = false;
     success.focus();
     success.scrollIntoView({ block: "center" });
   };
+
+  // Open the form and focus the first field when "I'm interested" is tapped
+  signup.addEventListener("toggle", () => { if (signup.open && !form.hidden) form.querySelector("input[type=checkbox]").focus({ preventScroll: true }); });
 
   // Non-JS submissions on Netlify land back here with ?sent=1
   if (new URLSearchParams(location.search).has("sent")) showSuccess();
