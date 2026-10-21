@@ -9,12 +9,16 @@ index.html              The one-page site
 volunteer.html          Volunteer sign-up form
 media-kit.html          Media kit / brand guidelines (logos, colors, fonts, messages, QR)
 terra-tominelli.html    Board member bio + résumé (copy it for each new board member)
+christa-lamb.html       Board member bio + résumé
+monica-young.html       Board member bio + résumé
+shannon-ling.html       Board member bio
 404.html                "Page not found" page
 assets/css/styles.css   All styling (brand colors are CSS variables at the top)
 assets/js/main.js       Link settings + mobile menu
 assets/img/             Official logo (logo.png 600px, logo-192.png for header/footer, one-color logo-navy.png / logo-white.png), favicon, icon sprite, QR codes
 assets/downloads/       Media kit PDF and print-size QR code PNG
 assets/img/photos/      Section photos (see "Photos" below)
+assets/img/team/        Board member headshots (portrait, about 800×1000)
 assets/fonts/           Self-hosted web fonts
 ```
 
@@ -22,12 +26,11 @@ assets/fonts/           Self-hosted web fonts
 
 | Item | Where to put it |
 | --- | --- |
-| Terra Tominelli headshot | Save as `assets/img/team/terra-tominelli.jpg` (portrait, about 800×1000). It appears on the Team card, her bio page and the media kit. |
 | Zeffy vendor registration URL | `vendorRegistration` in `SITE_CONFIG` |
 | Sponsorship / donation URL | `sponsorship` in `SITE_CONFIG` |
 | Event registration links | `eventRegistration`, `communityEvent` in `SITE_CONFIG` |
 | Supported-organization websites | `orgHaven`, `orgMothersHelpingMothers`, … in `SITE_CONFIG` |
-| Board & volunteer names, titles, photos | `#team` section of `index.html`. See "Photos" below. |
+| Volunteer names, titles, photos | `#team` section of `index.html`. See "Photos" below. |
 | Event details (date, location, tickets) | `#events` section of `index.html` |
 
 ## Volunteer sign-up form

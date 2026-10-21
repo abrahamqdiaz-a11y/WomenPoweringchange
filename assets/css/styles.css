@@ -463,6 +463,7 @@ figure.photo { margin: 0; }
 .bio-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .bio-chips li { background: var(--teal-soft); color: var(--teal-dark); font-weight: 700; font-size: .9rem; padding: 8px 16px; border-radius: 999px; }
 .bio-back { margin-top: 48px; }
+.bio-quote { margin-top: 40px; font-family: var(--font-display); font-size: 1.25rem; color: var(--navy); }
 
 /* ---------- Media kit ---------- */
 .kit { padding-top: clamp(40px, 5vw, 64px); }
