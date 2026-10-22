@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Sign-Up | Women Powering Change Florida</title>
+  <meta name="description" content="Sign up to volunteer with Women Powering Change Florida. Share your talents, time, and passion to help a local cause each quarter.">
+  <meta name="theme-color" content="#123f59">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Volunteer With Women Powering Change Florida">
+  <meta property="og:description" content="Our volunteers turn ideas into action. Share your talents and help a local cause move forward.">
+  <meta property="og:image" content="assets/img/logo.png">
+
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announce">
+  <strong>Women United.</strong><span class="dot"></span>Businesses Empowered.<span class="dot extra"></span><span class="extra">Communities Transformed.</span>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Women Powering Change Florida — home">
+      <img src="assets/img/logo-192.png" alt="" width="52" height="52">
+      <span class="brand-name">Women Powering Change<small>FLORIDA</small></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+      <span class="nav-toggle-bars"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Main">
+      <a href="index.html#about">About</a>
+      <a href="index.html#philosophy">Our Philosophy</a>
+      <a href="index.html#impact">Our Impact</a>
+      <a href="index.html#events">Events</a>
+      <a href="index.html#team">Board &amp; Volunteers</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="btn btn-outline btn-sm" href="volunteer.html" aria-current="page">Volunteer</a>
+      <a class="btn btn-primary btn-sm" href="index.html#support">Support Us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Volunteer Sign-Up</span>
+    <h1>Lend your <em>talents.</em> Spark change.</h1>
+    <p>Our volunteers turn ideas into action. They help organize events, support quarterly causes, connect resources, amplify local organizations, and create opportunities for more women to get involved.</p>
+  </div>
+</section>
+
+<section class="signup">
+  <div class="container signup-grid">
+
+    <aside class="signup-aside">
+      <h2>Every woman has something valuable to give.</h2>
+      <p>A skill, a connection, a voice, a product, a service, a donation, a platform, or simply a willingness to show up. Tell us a little about yourself and we'll find the right fit.</p>
+      <ul class="signup-points">
+        <li>
+          <span class="tile-icon pink"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#user-plus"/></svg></span>
+          <div><strong>Share a little about you</strong>Your talents, interests, and availability.</div>
+        </li>
+        <li>
+          <span class="tile-icon teal"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg></span>
+          <div><strong>We'll reach out</strong>Our team will contact you about upcoming opportunities.</div>
+        </li>
+        <li>
+          <span class="tile-icon gold"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#hand-heart"/></svg></span>
+          <div><strong>Make an impact together</strong>Help a local cause move forward each quarter.</div>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="form-card">
+      <form id="volunteer-form" class="form" name="volunteer-signup" method="POST" action="volunteer.html?submitted=1"
+            data-netlify="true" netlify-honeypot="company_website" novalidate>
+        <input type="hidden" name="form-name" value="volunteer-signup">
+        <p class="hp" aria-hidden="true">
+          <label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <p class="form-note"><span class="req" aria-hidden="true">*</span> Required</p>
+
+        <fieldset class="form-section">
+          <legend>Contact information</legend>
+
+          <div class="field">
+            <label for="full_name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="full_name" name="full_name" type="text" autocomplete="name" required>
+            <p class="field-error" id="full_name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="street">Street address <span class="req" aria-hidden="true">*</span></label>
+            <input id="street" name="street_address" type="text" autocomplete="street-address" required>
+            <p class="field-error" id="street-error"></p>
+          </div>
+
+          <div class="field-row three">
+            <div class="field">
+              <label for="city">City <span class="req" aria-hidden="true">*</span></label>
+              <input id="city" name="city" type="text" autocomplete="address-level2" required>
+              <p class="field-error" id="city-error"></p>
+            </div>
+            <div class="field">
+              <label for="state">State <span class="req" aria-hidden="true">*</span></label>
+              <input id="state" name="state" type="text" autocomplete="address-level1" value="FL" required>
+              <p class="field-error" id="state-error"></p>
+            </div>
+            <div class="field">
+              <label for="zip">ZIP code <span class="req" aria-hidden="true">*</span></label>
+              <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" pattern="\d{5}(-\d{4})?" required>
+              <p class="field-error" id="zip-error"></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Telephone <span class="req" aria-hidden="true">*</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" pattern="[\d\s()+.\-]{10,}" required>
+              <p class="field-error" id="phone-error"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <p class="field-error" id="email-error"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>About you</legend>
+
+          <fieldset class="field choice-group" id="business_owner-group">
+            <legend>Are you a business owner? <span class="req" aria-hidden="true">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="business_owner" value="Yes" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="business_owner" value="No"><span>No</span></label>
+            </div>
+            <p class="field-error" id="business_owner-error"></p>
+          </fieldset>
+
+          <div class="field" id="business-name-field" hidden>
+            <label for="business_name">Business name <span class="optional">(optional)</span></label>
+            <input id="business_name" name="business_name" type="text" autocomplete="organization">
+          </div>
+
+          <div class="field">
+            <label for="talents">Talents</label>
+            <p class="hint" id="talents-hint">Skills you'd love to share, like event planning, photography, social media, design, or fundraising.</p>
+            <textarea id="talents" name="talents" rows="3" aria-describedby="talents-hint"></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="interests">Interests</label>
+              <textarea id="interests" name="interests" rows="3"></textarea>
+            </div>
+            <div class="field">
+              <label for="hobbies">Hobbies</label>
+              <textarea id="hobbies" name="hobbies" rows="3"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Availability</legend>
+
+          <div class="field">
+            <label for="hours">How many hours can you dedicate to volunteering? <span class="req" aria-hidden="true">*</span></label>
+            <select id="hours" name="hours_per_month" required>
+              <option value="">Choose one</option>
+              <option>1–2 hours a month</option>
+              <option>3–5 hours a month</option>
+              <option>6–10 hours a month</option>
+              <option>More than 10 hours a month</option>
+              <option>It varies, ask me per event</option>
+            </select>
+            <p class="field-error" id="hours-error"></p>
+          </div>
+
+          <fieldset class="field choice-group" id="time_preference-group">
+            <legend>Do you prefer mornings or evenings? <span class="req" aria-hidden="true">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="time_preference" value="Mornings" required><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#sun"/></svg>Mornings</span></label>
+              <label class="choice"><input type="radio" name="time_preference" value="Evenings"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#moon"/></svg>Evenings</span></label>
+              <label class="choice"><input type="radio" name="time_preference" value="Either"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#sunset"/></svg>Either works</span></label>
+            </div>
+            <p class="field-error" id="time_preference-error"></p>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Tell us about yourself</legend>
+          <div class="field">
+            <label for="about" class="visually-hidden">Tell us about yourself</label>
+            <p class="hint" id="about-hint">What draws you to Women Powering Change? Any causes close to your heart?</p>
+            <textarea id="about" name="about_yourself" rows="5" aria-describedby="about-hint"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Submit Sign-Up <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="form-success" id="form-success" tabindex="-1" hidden>
+        <span class="tile-icon pink"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#circle-check"/></svg></span>
+        <h2>Thank you for signing up!</h2>
+        <p>We're so glad you want to power change with us. Someone from our team will reach out soon about upcoming volunteer opportunities.</p>
+        <a class="btn btn-outline" href="index.html">Back to Home</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Home">
+        <img src="assets/img/logo-192.png" alt="" width="52" height="52">
+        <span class="brand-name">Women Powering Change<small>FLORIDA</small></span>
+      </a>
+      <p class="footer-tag">Fueling Women. Sparking Change.</p>
+      <p>Empowering women. Connecting communities. Supporting positive change.</p>
+      <p><a class="footer-email" href="mailto:contactwpc941@gmail.com"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg> contactwpc941@gmail.com</a></p>
+    </div>
+    <nav aria-label="Quick links">
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="index.html#about">Our Mission</a></li>
+        <li><a href="index.html#philosophy">Our Philosophy</a></li>
+        <li><a href="index.html#impact">Our Impact</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#team">Board &amp; Volunteers</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Get involved">
+      <h2>Get Involved</h2>
+      <ul>
+        <li><a href="index.html#support">Become a Vendor</a></li>
+        <li><a href="index.html#support">Sponsor Us</a></li>
+        <li><a href="volunteer.html">Volunteer Sign-Up</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="media-kit.html">Media Kit</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span data-year>2026</span> Women Powering Change Florida. All rights reserved.</span>
+    <span>Women United. Businesses Empowered. Communities Transformed.</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
