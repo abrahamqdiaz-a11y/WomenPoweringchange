@@ -502,6 +502,7 @@ figure.photo { margin: 0; }
 .kit-focus, .kit-values { font-weight: 700; color: var(--pink); }
 .kit-leader-row { display: grid; grid-template-columns: 160px 1fr; gap: 32px; align-items: center; }
 .kit-leader-photo { aspect-ratio: 1; border-radius: 50%; }
+.kit-leader-row + .kit-leader-row { margin-top: 32px; }
 .kit-connect { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: center; }
 .kit-qr { text-align: center; }
 .kit-qr img { width: 180px; height: 180px; margin: 0 auto 10px; background: #fff; }
@@ -545,7 +546,9 @@ figure.photo { margin: 0; }
   .kit-about-grid, .kit-type { grid-template-columns: 1fr 1fr; }
   .taglines li { grid-template-columns: 150px 1fr; font-size: 14pt; }
   .kit-connect { grid-template-columns: 200px 1fr; }
-  .kit-leader-row { grid-template-columns: 120px 1fr; }
+  .kit-leader { break-inside: auto; }
+  .kit-leader-row { grid-template-columns: 120px 1fr; break-inside: avoid; }
+  .kit-leader-row + .kit-leader-row { margin-top: 16px; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
