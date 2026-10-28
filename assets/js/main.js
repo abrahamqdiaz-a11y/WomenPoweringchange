@@ -15,9 +15,10 @@ const SITE_CONFIG = {
   // Netlify: Netlify Forms collects submissions automatically. On any other
   // host, paste a form-service endpoint here, e.g. "https://formspree.io/f/abcd1234".
   volunteerFormEndpoint: "",
+  // Vendor application form (vendor.html). Same rule as above.
+  vendorFormEndpoint: "",
 
   // Get Involved
-  vendorRegistration: "", // Zeffy vendor registration form
   sponsorship: "",        // Sponsorship / donation page
 
   // Events
@@ -142,9 +143,9 @@ document.querySelectorAll(".photo img").forEach((img) => {
   items.forEach((el) => observer.observe(el));
 })();
 
-/* ---------- Volunteer sign-up form ---------- */
-(function volunteerForm() {
-  const form = document.getElementById("volunteer-form");
+/* ---------- Volunteer sign-up and vendor application forms ---------- */
+(function signupForm() {
+  const form = document.querySelector(".signup-form");
   if (!form) return;
   const success = document.getElementById("form-success");
   const status = form.querySelector(".form-status");
@@ -162,7 +163,7 @@ document.querySelectorAll(".photo img").forEach((img) => {
 
   // Ask for a business name only when "Yes" is chosen
   const businessField = document.getElementById("business-name-field");
-  form.querySelectorAll('input[name="business_owner"]').forEach((radio) => {
+  if (businessField) form.querySelectorAll('input[name="business_owner"]').forEach((radio) => {
     radio.addEventListener("change", () => { businessField.hidden = radio.value !== "Yes" || !radio.checked; });
   });
 
@@ -177,6 +178,12 @@ document.querySelectorAll(".photo img").forEach((img) => {
     hours: "Please choose how many hours you can volunteer.",
     business_owner: "Please choose Yes or No.",
     time_preference: "Please choose mornings, evenings, or either.",
+    business_name: "Please enter your business name.",
+    category: "Please choose a business category.",
+    offerings: "Please tell us what you'll sell or offer.",
+    woman_owned: "Please choose Yes or No.",
+    own_setup: "Please choose one.",
+    electricity: "Please choose Yes or No.",
   };
 
   const messageFor = (key, validity) => {
@@ -244,7 +251,7 @@ document.querySelectorAll(".photo img").forEach((img) => {
     const data = new FormData(form);
 
     try {
-      const endpoint = (SITE_CONFIG.volunteerFormEndpoint || "").trim();
+      const endpoint = (SITE_CONFIG[form.dataset.endpoint] || "").trim();
       const res = endpoint
         ? await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
         : await fetch("/", {
@@ -256,7 +263,7 @@ document.querySelectorAll(".photo img").forEach((img) => {
       showSuccess();
     } catch (err) {
       const email = (SITE_CONFIG.email || "").replace(/^mailto:/, "");
-      status.textContent = "Sorry, we couldn't send your sign-up. Please try again" + (email ? ` or email us at ${email}.` : " in a moment.");
+      status.textContent = "Sorry, we couldn't send your form. Please try again" + (email ? ` or email us at ${email}.` : " in a moment.");
       status.classList.add("is-error");
     } finally {
       submitBtn.disabled = false;

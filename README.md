@@ -7,6 +7,7 @@ A fast, dependency-free static site (HTML + CSS + a little JavaScript). No build
 ```
 index.html              The one-page site
 volunteer.html          Volunteer sign-up form
+vendor.html             Vendor application form
 media-kit.html          Media kit / brand guidelines (logos, colors, fonts, messages, QR)
 terra-tominelli.html    Board member bio + résumé (copy it for each new board member)
 christa-lamb.html       Board member bio + résumé
@@ -26,7 +27,6 @@ assets/fonts/           Self-hosted web fonts
 
 | Item | Where to put it |
 | --- | --- |
-| Zeffy vendor registration URL | `vendorRegistration` in `SITE_CONFIG` |
 | Sponsorship / donation URL | `sponsorship` in `SITE_CONFIG` |
 | Event registration links | `eventRegistration`, `communityEvent` in `SITE_CONFIG` |
 | Supported-organization websites | `orgHaven`, `orgMothersHelpingMothers`, … in `SITE_CONFIG` |
@@ -43,6 +43,12 @@ assets/fonts/           Self-hosted web fonts
 - **Any other host (GitHub Pages, etc.):** create a free form endpoint at a service like [Formspree](https://formspree.io) and paste its URL into `volunteerFormEndpoint` in `SITE_CONFIG` (`assets/js/main.js`). Submissions are then emailed to you.
 
 If neither is set up, visitors see an error asking them to try again, so set one up before launch.
+
+## Vendor application form
+
+`vendor.html` is linked from the "Become a Vendor" card and every footer. It collects: contact name, business name, telephone, email, city, website or social media (optional), business category, what they'll sell or offer, whether the business is woman-owned, whether they'll bring their own table and tent, whether they need electricity, which events interest them (optional), and any notes. It uses the same validation and spam honeypot as the volunteer form.
+
+Submissions work the same way: on Netlify they appear under *Site → Forms → vendor-application* (turn on email notifications there); on any other host, paste a form-service URL into `vendorFormEndpoint` in `SITE_CONFIG`.
 
 ## Photos
 
@@ -66,7 +72,7 @@ Every button that leads off-site has a `data-link="key"` attribute. `assets/js/m
 ```js
 const SITE_CONFIG = {
   email: "hello@example.org",
-  vendorRegistration: "https://www.zeffy.com/...",
+  sponsorship: "https://www.zeffy.com/...",
   // ...
 };
 ```
