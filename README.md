@@ -50,8 +50,8 @@ The design has photo frames in four places. Until a photo file exists, each fram
 
 | File | Where it appears | Suggested subject |
 | --- | --- | --- |
-| `hero-women.jpg` | Hero, large arched frame | A group of women together, smiling |
-| `hero-volunteers.jpg` | Hero, top right | Volunteers sorting or packing donations |
+| `hero-women.jpg` | Hero, large arched frame | Added: three women laughing together |
+| `hero-volunteers.jpg` | Hero, top right | Added: volunteers planting a garden |
 | `hero-rescue.jpg` | Hero, bottom right | A woman with a rescue dog or cat |
 | `give-together.jpg` | "Every woman has something valuable to give" | Added: woman in pink with a hand-and-heart icon |
 
