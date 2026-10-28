@@ -53,7 +53,7 @@ The design has photo frames in four places. Until a photo file exists, each fram
 | `hero-women.jpg` | Hero, large arched frame | A group of women together, smiling |
 | `hero-volunteers.jpg` | Hero, top right | Volunteers sorting or packing donations |
 | `hero-rescue.jpg` | Hero, bottom right | A woman with a rescue dog or cat |
-| `give-together.jpg` | "Every woman has something valuable to give" | Women business owners collaborating |
+| `give-together.jpg` | "Every woman has something valuable to give" | Added: woman in pink with a hand-and-heart icon |
 
 Use landscape or square photos around 1600px on the long side, compressed to about 300 KB or less. Real photos from the organization's own events are best. Free stock options include [Unsplash](https://unsplash.com/license) and [Pexels](https://www.pexels.com/license/), which allow commercial use without attribution.
 
