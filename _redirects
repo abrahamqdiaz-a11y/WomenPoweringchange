@@ -1,0 +1,3 @@
+# Short link printed on flyers (QR code). When the full site is ready,
+# change the next line to:  /info  /  302
+/info  /info.html  200
