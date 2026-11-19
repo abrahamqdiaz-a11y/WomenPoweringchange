@@ -21,7 +21,7 @@ const SITE_CONFIG = {
   sponsorship: "",        // Sponsorship / donation page
 
   // Events
-  eventRegistration: "",
+  eventRegistration: "https://www.zeffy.com/en-US/ticketing/love-on-the-catwalk", // Love on the Catwalk tickets
   communityEvent: "",
 
   // Supported organizations — "Learn More" links
